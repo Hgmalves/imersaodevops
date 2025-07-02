@@ -1,0 +1,25 @@
+
+# A seção 'services' é onde definimos os containers que compõem nossa aplicação.
+services:
+  # 'api' é o nome que damos ao nosso serviço/container da aplicação FastAPI.
+  api:
+    # 'build: .' instrui o Docker Compose a construir uma imagem a partir do Dockerfile
+    # localizado no diretório atual ('.').
+    build: .
+    # Define um nome fixo para o container, facilitando a sua identificação e gerenciamento.
+    container_name: api # Nome do container
+    # O comando que será executado quando o container iniciar.
+    # 'uvicorn app:app' inicia o servidor.
+    # '--host 0.0.0.0' permite que a API seja acessível de fora do container.
+    # '--port 8000' define a porta interna do container.
+    # '--reload' reinicia o servidor automaticamente quando detecta alterações nos arquivos, ideal para desenvolvimento.
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    # Mapeia a porta 8000 do seu computador (host) para a porta 8000 do container.
+    # Formato: "HOST:CONTAINER"
+    ports:
+      - "8000:8000"
+    # Monta o diretório atual ('.') do seu computador dentro do diretório '/app' do container.
+    # Isso permite que as alterações no código sejam refletidas instantaneamente no container (hot-reload)
+    # e que arquivos criados pelo container (como o banco de dados .db) sejam salvos no seu computador.
+    volumes:
+      - .:/app
