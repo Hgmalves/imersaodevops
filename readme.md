@@ -61,7 +61,14 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
 - O banco de dados SQLite será criado automaticamente como `escola.db` na primeira execução.
 - Para reiniciar o banco, basta apagar o arquivo `escola.db` (isso apagará todos os dados).
 
+# Aula 01 Palavra chave
 ** MARVEL**
 ---
 # MARVEL
+** MARVEL**
+
+# Aula 02 Palavra chave 
+** Ellis*
+---
+# Ellis
 ** MARVEL**
