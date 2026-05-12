@@ -1,77 +1,78 @@
-# Imersão DevOps - Alura Google Cloud
+# Imersao DevOps - API de Gestao Escolar
 
-Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e matrículas em uma instituição de ensino.
+API desenvolvida com FastAPI para gerenciar alunos, cursos e matriculas em uma instituicao de ensino. Projeto de estudo com foco em fundamentos de API, banco de dados, Docker e praticas iniciais de DevOps.
 
-## Pré-requisitos
+![Python](https://img.shields.io/badge/Python-3.10%2B-yellow)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![Docker](https://img.shields.io/badge/Docker-ready-blue)
 
-- [Python 3.10 ou superior instalado](https://www.python.org/downloads/)
-- [Git](https://git-scm.com/downloads)
-- [Docker](https://www.docker.com/get-started/)
+## Funcionalidades
 
-## Passos para subir o projeto
+- Cadastro e consulta de alunos.
+- Cadastro e consulta de cursos.
+- Gestao de matriculas.
+- Persistencia com SQLite.
+- Documentacao interativa via Swagger em `/docs`.
+- Suporte a execucao local e via Docker.
 
-1. **Faça o download do repositório:**
-   [Clique aqui para realizar o download](https://github.com/guilhermeonrails/imersao-devops/archive/refs/heads/main.zip)
+## Requisitos
 
-2. **Crie um ambiente virtual:**
-   ```sh
-   python3 -m venv ./venv
-   ```
+- Python 3.10 ou superior
+- Git
+- Docker e Docker Compose, opcional
 
-3. **Ative o ambiente virtual:**
-   - No Linux/Mac:
-     ```sh
-     source venv/bin/activate
-     ```
-   - No Windows:
-     ```sh
-     venv\Scripts\activate
-     ```
+## Execucao local
 
-4. **Instale as dependências:**
-   ```sh
-   pip install -r requirements.txt
-   ```
+Crie e ative um ambiente virtual:
 
-5. **Execute a aplicação:**
-   ```sh
-   uvicorn app:app --reload
-   ```
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
 
-6. **Acesse a documentação interativa:**
+Instale as dependencias:
 
-   Abra o navegador e acesse:  
-   [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+```powershell
+pip install -r requirements.txt
+```
 
-   Aqui você pode testar todos os endpoints da API de forma interativa.
+Inicie a API:
 
----
+```powershell
+uvicorn app:app --reload
+```
 
-## Estrutura do Projeto
+Acesse a documentacao:
 
-- `app.py`: Arquivo principal da aplicação FastAPI.
-- `models.py`: Modelos do banco de dados (SQLAlchemy).
-- `schemas.py`: Schemas de validação (Pydantic).
-- `database.py`: Configuração do banco de dados SQLite.
-- `routers/`: Diretório com os arquivos de rotas (alunos, cursos, matrículas).
-- `requirements.txt`: Lista de dependências do projeto.
+```text
+http://127.0.0.1:8000/docs
+```
 
----
+## Execucao com Docker
 
-- O banco de dados SQLite será criado automaticamente como `escola.db` na primeira execução.
-- Para reiniciar o banco, basta apagar o arquivo `escola.db` (isso apagará todos os dados).
+```powershell
+docker compose up --build
+```
 
-# Aula 01 Palavra chave
-** MARVEL**
----
-# MARVEL
-** MARVEL**
+## Estrutura
 
-# Aula 02 Palavra chave 
-** Ellis*
----
-# Ellis
-** MARVEL**
-# Aula 03 Palavra chave 
-# YAML
-** YAML **
+```text
+.
+|-- app.py
+|-- database.py
+|-- models.py
+|-- schemas.py
+|-- requirements.txt
+|-- Dockerfile
+|-- docker-compose.yml
+`-- routers/
+```
+
+## Banco de dados
+
+O projeto usa SQLite. O arquivo `escola.db` pode ser recriado durante a execucao local. Em ambientes reais, evite versionar bancos com dados sensiveis.
+
+## Endpoints
+
+Use `/docs` para consultar e testar os endpoints disponiveis.
+
